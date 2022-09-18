@@ -1,7 +1,7 @@
 repeat task.wait() until game:IsLoaded() == true
 local injected = true
 local oldrainbow = false
-local customdir = (shared.VapePrivate and shared.catprivate and "vapeprivate/" and "catjello/" or "vape/")
+local customdir = (shared.VapePrivate and "vapeprivate/" or "vape/")
 local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
 	return suc and res ~= nil
@@ -1867,15 +1867,17 @@ else
 		end
 	end
 	if shared.VapePrivate then
-		if pcall(function() readfile("vapeprivate/CustomModules/"..game.PlaceId..".lua") end) then
-			loadstring(readfile("vapeprivate/CustomModules/"..game.PlaceId..".lua"))()
+		if pcall(function() readfile("catjello/CustomModules/"..game.PlaceId..".lua") end) then
+			loadstring(readfile("catjello/CustomModules/"..game.PlaceId..".lua"))()
 		end	
 	end
+--[[
 	if shared.catprivate then
 		if pcall(function() readfile("catjello/CustomModules/"..game.PlaceId..".lua") end) then
 			loadstring(readfile("catjello/CustomModules/"..game.PlaceId..".lua"))()
 		end	
 	end
+--]]
 	GuiLibrary["LoadSettings"](shared.VapeCustomProfile)
 	local profiles = {}
 	for i,v in pairs(GuiLibrary["Profiles"]) do 
